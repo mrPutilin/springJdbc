@@ -1,4 +1,4 @@
-package ru.putilin.springjdbc.Utils;
+package ru.putilin.springjdbc.utils;
 
 import org.springframework.core.io.ClassPathResource;
 

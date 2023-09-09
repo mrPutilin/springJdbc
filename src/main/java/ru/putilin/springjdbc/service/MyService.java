@@ -1,7 +1,6 @@
-package ru.putilin.springjdbc.Service;
+package ru.putilin.springjdbc.service;
 
-import ru.putilin.springjdbc.Model.Product;
-import ru.putilin.springjdbc.Repository.MyRepository;
+import ru.putilin.springjdbc.repository.MyRepository;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class MyService {
         this.repository = repository;
     }
 
-    public List<Product> getProductName(String name) {
+    public List<String> getProductName(String name) {
         return repository.getProductName(name);
     }
 

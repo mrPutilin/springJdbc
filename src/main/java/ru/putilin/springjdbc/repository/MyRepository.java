@@ -1,9 +1,8 @@
-package ru.putilin.springjdbc.Repository;
+package ru.putilin.springjdbc.repository;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import ru.putilin.springjdbc.Model.Product;
-import ru.putilin.springjdbc.Utils.SqlReader;
+import ru.putilin.springjdbc.utils.SqlReader;
 
 import java.util.List;
 
@@ -11,21 +10,20 @@ import java.util.List;
 @org.springframework.stereotype.Repository
 public class MyRepository {
 
-    private final static String script = "myScript.sql";
+
+    private final String script;
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public MyRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+        this.script = SqlReader.read("myScript.sql");
     }
 
 
-    public List<Product> getProductName(String name) {
-        String product = SqlReader.read(script);
+    public List<String> getProductName(String name) {
         MapSqlParameterSource params = new MapSqlParameterSource("name", name);
-        List<Product> productName = namedParameterJdbcTemplate.query(product, params,
-                (rs, rowNum) -> new Product(rs.getString("product_name")));
-        return productName;
+        return namedParameterJdbcTemplate.queryForList(script, params, String.class);
     }
 
 }

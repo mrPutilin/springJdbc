@@ -19,7 +19,7 @@ public class MyController {
     }
 
     @GetMapping()
-    public List<String> getProductName(@RequestParam("name") String name ) {
-       return service.getProductName(name);
+    public List<String> getProductName(@RequestParam("name") String name) {
+        return service.getProductName(name);
     }
 }

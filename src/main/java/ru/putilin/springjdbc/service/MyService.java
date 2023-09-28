@@ -1,5 +1,6 @@
 package ru.putilin.springjdbc.service;
 
+import ru.putilin.springjdbc.entity.Order;
 import ru.putilin.springjdbc.repository.MyRepository;
 
 import java.util.List;

@@ -2,10 +2,6 @@ package ru.putilin.springjdbc.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import ru.putilin.springjdbc.entity.Order;
-import ru.putilin.springjdbc.utils.SqlReader;
 
 import java.util.List;
 
@@ -28,16 +24,7 @@ public class MyRepository {
                 .setParameter(1, name)
                 .getResultList();
         return products;
-//        return entityManager.createQuery("SELECT order from Order order " +
-//                "inner join Customer customer ON order.customer_id = customer.id where customer.name = ?1", Order.class)
-//                .setParameter(1, name)
-//                .getResultList();
-//         return entityManager.createQuery(script, String.class)
-//                .setParameter("name", name.toLowerCase())
-//                 .getResultList();
 
-//        MapSqlParameterSource params = new MapSqlParameterSource("name", name);
-//        return namedParameterJdbcTemplate.queryForList(script, params, String.class);
     }
 
 }
